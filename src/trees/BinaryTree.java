@@ -48,6 +48,8 @@ public class BinaryTree {
     }
 
     static void printLevelOrder_Queue(Node root){
+        if(null == root)
+            return;
         Queue<Node> queue = new LinkedList<>();
         queue.add(root);
         while(!queue.isEmpty()){
@@ -124,6 +126,46 @@ public class BinaryTree {
         }
     }
 
+    static void deleteNode(BinaryTree binaryTree, int data){
+        if (binaryTree.root == null){
+            return;
+        }else if(binaryTree.root.data == data && binaryTree.root.left == null && binaryTree.root.right==null){
+            binaryTree.root=null;
+            return;
+        }
+
+
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(binaryTree.root);
+        Node temp=null,d_node = null,parent=null;
+        while(!queue.isEmpty()){
+            temp = queue.peek();
+            queue.remove();
+            if(temp.data == data){
+                d_node = temp;
+            }
+            if(temp.left!=null){
+                parent = temp;
+                queue.add(temp.left);
+            }
+            if(temp.right!=null){
+                parent = temp;
+                queue.add(temp.right);
+            }
+        }
+
+        if(d_node != null){
+            d_node.data = temp.data;
+            if(parent.left.data == temp.data){
+                parent.left=null;
+            }else if(parent.right.data == temp.data){
+                parent.right = null;
+            }
+        }
+    }
+
+
+
     /*
                     1
                 2      3
@@ -146,9 +188,6 @@ public class BinaryTree {
         System.out.println("Breadth First Search OR Level Order ");
         printLevelOrder(binaryTree.root);
 
-        System.out.println("Breadth First Search OR Level Order  - Queue");
-        printLevelOrder_Queue(binaryTree.root);
-
         System.out.println("PreOrder Traversal");
         preOrderTraversal(binaryTree.root);
 
@@ -157,6 +196,15 @@ public class BinaryTree {
 
         System.out.println("Post Order Traversal");
         postOrderTraversal(binaryTree.root);
+
+        System.out.println("Breadth First Search OR Level Order  - Queue");
+        printLevelOrder_Queue(binaryTree.root);
+
+        System.out.println("Delete Node");
+        deleteNode(binaryTree,7);
+
+        System.out.println("Breadth First Search OR Level Order  - After Deletion");
+        printLevelOrder_Queue(binaryTree.root);
 
     }
 }
