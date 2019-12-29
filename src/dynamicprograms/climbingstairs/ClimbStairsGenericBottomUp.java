@@ -1,5 +1,13 @@
 package dynamicprograms.climbingstairs;
 
+
+//steps = {2,3}, total, n = 7
+// 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
+// 1 | 0 | 1 | 1 | 1 | 2 | 2 | 3 | 4
+//Sum of steps 5(7-2) and 4(7-3)
+
+//Same approach for AmericanFootball.
+
 public class ClimbStairsGenericBottomUp {
     public static void main(String[] args) {
         int[] steps = {2,3};
