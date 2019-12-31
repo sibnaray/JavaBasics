@@ -1,5 +1,9 @@
 package dynamicprograms;
 
+//Sample
+//Length: 1 | 2 | 3 | 4
+//Profit: 2 | 5 | 6 | 11
+
 public class MaximumProfit_CuttingGoldRode {
     static class MaximumProfits{
         int length;
@@ -18,6 +22,9 @@ public class MaximumProfit_CuttingGoldRode {
         System.out.println(getMaximunProfit(6,profits));
     }
     static int getMaximunProfit(int L,MaximumProfits[] mps){
+        ////DP table as below
+        //Rod Length : 0 | 1 | 2 | 3 | 4 | 5 | 6
+        //Profits    : 0 | 2 | 5 | 7 | 11| 13| 16
         int[] dp = new int[L+1];
         dp[0]=0;
         for(int l=1;l<=L;l++){
