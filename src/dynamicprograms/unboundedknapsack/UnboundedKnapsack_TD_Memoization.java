@@ -18,6 +18,8 @@ public class UnboundedKnapsack_TD_Memoization {
         if(dp[currentIndex][capacity] == null){
             int profit1 = 0;
             if(weights[currentIndex] <= capacity){
+            // recursive call after choosing the items at the currentIndex, note that we recursive call on all
+            // items as we did not increment currentIndex
                 profit1=profits[currentIndex]+solveKnapsack_TD_Recursion(dp,profits,weights,
                         capacity-weights[currentIndex],currentIndex);
             }
