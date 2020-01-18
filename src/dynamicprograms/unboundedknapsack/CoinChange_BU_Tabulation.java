@@ -10,6 +10,7 @@ public class CoinChange_BU_Tabulation {
             return 0;
         int[][] dp = new int[denominations.length][amount+1];
 
+        // populate the total=0 columns, as we will always have an empty set for zero toal
         for(int i=0 ; i<denominations.length; i++)
             dp[i][0] = 1;
         for(int i=0; i<denominations.length; i++){
