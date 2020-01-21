@@ -43,11 +43,12 @@ public class LongestPalindromicSubsequence {
         //if characters and same we can include both in palindromic sequence
         if(str.charAt(si) == str.charAt(ei))
             return 2 + findLPSLength_Recursive(str,si+1,ei-1);
+        else{
+            //else skip one from beginning or end and find the max ength
+            int c1 = findLPSLength_Recursive(str,si+1,ei);
+            int c2= findLPSLength_Recursive(str,si,ei-1);
+            return Math.max(c1,c2);
+        }
 
-        //else skip one from beginning or end and find the max ength
-        int c1 = findLPSLength_Recursive(str,si+1,ei);
-        int c2= findLPSLength_Recursive(str,si,ei-1);
-
-        return Math.max(c1,c2);
     }
 }
