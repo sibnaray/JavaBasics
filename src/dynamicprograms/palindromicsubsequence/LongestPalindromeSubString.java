@@ -20,7 +20,7 @@ package dynamicprograms.palindromicsubsequence;
 //2) We will skip either the element from the beginning or the end to make two recursive calls for the
 // remaining substring. The length of LPS would be the maximum of these two recursive calls.
 
-public class LongestPalindromeSequence {
+public class LongestPalindromeSubString {
     public static void main(String[] args) {
         System.out.println(findLPSLength("abdbca"));
         System.out.println(findLPSLength("cddpd"));
