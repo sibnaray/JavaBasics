@@ -9,7 +9,7 @@ package dynamicprograms.palindromicsubsequence;
 //
 //If the element at the startIndex matches the element at the endIndex, we will further check if the remaining substring
 // (from startIndex+1 to endIndex-1) is a substring too.
-public class LongestPalindromeSequence_BU_Tabulation {
+public class LongestPalindromeSubString_BU_Tabulation {
     public static void main(String[] args) {
         System.out.println(findLPSLength("abdbca"));
         System.out.println(findLPSLength("cddpd"));
