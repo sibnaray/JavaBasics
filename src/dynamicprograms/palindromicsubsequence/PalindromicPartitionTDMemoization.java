@@ -42,7 +42,7 @@ public class PalindromicPartitionTDMemoization {
     static int findPPCuts(String str){
         Integer[][] dp = new Integer[str.length()][str.length()];
         Boolean[][] dpIsPalindrome = new Boolean[str.length()][str.length()];
-        return findPPCuts_Rec(str, dp,dpIsPalindrome,0,str.length()-1);
+        return findPPCuts_TS_Memoization(str, dp,dpIsPalindrome,0,str.length()-1);
     }
 
     static int findPPCuts_TS_Memoization(String str, Integer[][] dp,Boolean[][] dpIsPalindrome, int startIndex, int endIndex){
