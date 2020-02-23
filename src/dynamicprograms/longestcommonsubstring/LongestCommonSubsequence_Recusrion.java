@@ -35,10 +35,10 @@ public class LongestCommonSubsequence_Recusrion {
 
         if(str1.charAt(i1) == str2.charAt(i2))
             return 1 + findLCSLength_Rec(str1,str2,i1+1, i2+1);
-
-        int c1 = findLCSLength_Rec(str1,str2,i1+1,i2);
-        int c2 = findLCSLength_Rec(str1,str2, i1, i2+1);
-
-        return Math.max(c1, c2);
+        else{
+            int c1 = findLCSLength_Rec(str1,str2,i1+1,i2);
+            int c2 = findLCSLength_Rec(str1,str2, i1, i2+1);
+            return Math.max(c1, c2);
+        }
     }
 }
