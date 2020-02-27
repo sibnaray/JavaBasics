@@ -1,6 +1,6 @@
 package dynamicprograms.stringinterleaving;
 
-public class StringInterlnterLeavingBruteforce_Recursion {
+public class StringInterlnterLeaving_Bruteforce_Recursion {
 
     public static void main(String[] args) {
         String s1 = "abc";
