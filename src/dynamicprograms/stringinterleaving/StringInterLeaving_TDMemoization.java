@@ -1,6 +1,6 @@
 package dynamicprograms.stringinterleaving;
 
-public class StringInterlnterLeavingTDMemoization {
+public class StringInterLeaving_TDMemoization {
 
     public static void main(String[] args) {
         String s1 = "abc";
