@@ -1,0 +1,34 @@
+package dynamicprograms.longestcommonsubstring;
+
+import java.util.HashMap;
+
+public class SubsequencePatternMatchingCount_TDMemoization {
+    public static void main(String[] args) {
+        SubsequencePatternMatchingCount_TDMemoization spm = new SubsequencePatternMatchingCount_TDMemoization();
+        System.out.println(spm.findSPMCount("baxmx", "ax"));
+        System.out.println(spm.findSPMCount("tomorrow", "tor"));
+    }
+
+    int findSPMCount(String str, String pat){
+        HashMap<String,Integer> dpMap = new HashMap<>();
+        return findSPMCount_TD(dpMap,str,pat,0,0);
+    }
+
+    int findSPMCount_TD(HashMap<String,Integer> dpMap, String str, String pat, int str_i, int pat_i){
+        if(pat_i==pat.length())
+            return 1;
+
+        if(str_i == str.length())
+            return 0;
+
+        String key = str_i+"|"+pat_i;
+        if(!dpMap.containsKey(key)){
+            int c1=0;
+            if(str.charAt(str_i)==pat.charAt(pat_i))
+                c1=findSPMCount_TD(dpMap,str,pat,str_i+1,pat_i+1);
+            int c2 = findSPMCount_TD(dpMap,str,pat,str_i+1,pat_i);
+            dpMap.put(key,c1+c2);
+        }
+        return dpMap.get(key);
+    }
+}
