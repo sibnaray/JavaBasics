@@ -17,6 +17,8 @@ public class FindNumberOfConnectedComponents {
             if(graph.visited[i]==-1){
                 count=count+1;
                 graph.BFS(i);
+                //Using DFS
+                //graph.DFS(i);
             }
         }
         System.out.println("Count : "+count);
@@ -55,6 +57,16 @@ class Graph{
                     queue.add(i);
                     visited[i]=1;
                 }
+            }
+        }
+    }
+
+    void DFS(int source){
+        visited[source]=1;
+        for(int neighbour : adjList[source]){
+            if(visited[neighbour]==-1){
+                DFS(neighbour);
+                System.out.println(neighbour);
             }
         }
     }
